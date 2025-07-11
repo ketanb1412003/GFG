@@ -1,25 +1,30 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
-void sortCheck(vector<int>&arr){
-    int len,a;
-    cin>>len;
-    for(int i=0;i<len;i++){
-        cin>>a;
+
+int removeDuplicates(vector<int>& arr) {
+    int n;
+    cin >> n; // Read the number of elements
+    int a;
+    for (int i = 0; i < n; i++) {
+        cin >> a;
         arr.push_back(a);
     }
-    vector<int>distinct;
-    set<int>compare;
-        for(int i=0;i<len;i++){
-        if(compare.find(arr[i])==compare.end()){
-            distinct.push_back(arr[i]);
-            compare.insert(arr[i]);
-           }
+    if (n <= 1)
+        return n;
+    int idx = 1;
+    for (int i = 1; i < n; i++) {
+        if (arr[i] != arr[i - 1]) {
+            arr[idx++] = arr[i];
+        }
+    }
+    return idx;
 }
-    for(int i:distinct)
-    cout<<i;
-}
-int main(){
-    vector<int>v;
-    sortCheck(v);
+
+int main() {
+    vector<int> v;
+    int newSize = removeDuplicates(v);
+    for (int i = 0; i < newSize; i++)
+        cout << v[i] << " ";
     return 0;
 }
