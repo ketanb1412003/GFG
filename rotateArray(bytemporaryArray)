@@ -1,0 +1,34 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void rotate(vector <int> &arr){
+    int n,a,d;
+    cin>>n;
+    cout<<"enter d";
+    cin>>d;
+    for(int i=0;i<n;i++){
+        cin>>a;
+        arr.push_back(a);
+    }
+    vector <int> temp(n);
+    for(int i=d-1; i>=0; i--){
+        temp[i] = arr[n-1];
+        n--;
+    } 
+    for(int j=0; j<n-d; j++){
+        temp[d+j] = arr[j];
+    }
+    for(int i=0; i<n; i++){
+    arr[i] = temp[i];}
+    
+    for(auto k: arr)
+        cout<<k;
+}
+
+int main() {
+   vector <int> v;
+   rotate(v);
+    return 0;
+}
