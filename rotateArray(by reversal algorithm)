@@ -1,0 +1,32 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+
+void rotate(vector<int>& arr) {
+    int n, d, a;
+    cin >> n >> d;
+    for (int i = 0; i < n; i++) {
+        cin >> a;
+        arr.push_back(a);
+    }
+    d %= n;
+
+     // Step 1: Reverse the entire array
+    reverse(arr.begin(), arr.end());
+    // Step 2: Reverse first d elements
+    reverse(arr.begin(), arr.begin() + d);
+    // Step 3: Reverse remaining n - d elements
+    reverse(arr.begin() + d, arr.end());
+   
+    
+
+    // Output the rotated array
+    for (auto i : arr)
+        cout << i << " ";
+}
+
+int main() {
+    vector <int> v;
+    rotate(v);
+    return 0;
+}
